@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectResources">
+    <resource url="http://amekoshi.com/2020/tmt/model" location="$PROJECT_DIR$/schema/model.xsd" />
+    <resource url="http://amekoshi.com/2020/tmt/template" location="$PROJECT_DIR$/schema/template.xsd" />
+  </component>
+  <component name="ProjectRootManager" version="2" project-jdk-name="Pipenv (sozu)" project-jdk-type="Python SDK" />
+</project>
