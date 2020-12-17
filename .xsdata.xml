@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Config xmlns="http://pypi.org/project/xsdata" version="20.12">
   <Output wsdl="false" maxLineLength="79">
-    <Package>sozu.lib</Package>
+    <Package>sozu.data</Package>
     <Format>pydata</Format>
     <Structure>filenames</Structure>
     <DocstringStyle>reStructuredText</DocstringStyle>

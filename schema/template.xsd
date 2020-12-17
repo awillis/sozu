@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
-    vc:minVersion="1.1" xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning">
-
-    <xs:element name="template"/>
-</xs:schema>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" vc:minVersion="1.1"
+    xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
+    targetNamespace="http://schema.amekoshi.com/2020/12/tmt/template"
+    xmlns:tt="http://schema.amekoshi.com/2020/12/tmt/template">
+    <group name="template">
+        <sequence>
+            <element ref="tt:stencils"/>
+            <element ref="tt:ruleset"/>
+            <element ref="tt:threats"/>
+        </sequence>
+    </group>
+    <element name="stencils"/>
+    <element name="ruleset"/>
+    <element name="threats"/>
+</schema>
