@@ -1,9 +1,9 @@
 from dataclasses import dataclass, field
 from typing import Optional
 from sozu.data.template import (
-    Ruleset,
-    Stencils,
-    Threats,
+    RuleList,
+    StencilList,
+    ThreatList,
 )
 
 __NAMESPACE__ = "http://schema.amekoshi.com/2020/12/tmt/model"
@@ -26,15 +26,15 @@ class Diagram:
 
 
 @dataclass
-class Diagrams:
+class DiagramList:
     class Meta:
-        name = "diagrams"
-        namespace = "http://schema.amekoshi.com/2020/12/tmt/model"
+        name = "diagramList"
 
     diagram: Optional[Diagram] = field(
         default=None,
         metadata={
             "type": "Element",
+            "namespace": "http://schema.amekoshi.com/2020/12/tmt/model",
             "required": True,
         }
     )
@@ -46,7 +46,7 @@ class Model:
         name = "model"
         namespace = "http://schema.amekoshi.com/2020/12/tmt/model"
 
-    diagrams: Optional[object] = field(
+    diagrams: Optional[DiagramList] = field(
         default=None,
         metadata={
             "type": "Element",
@@ -63,7 +63,7 @@ class Model:
 
     @dataclass
     class Template:
-        stencils: Optional[Stencils] = field(
+        stencils: Optional[StencilList] = field(
             default=None,
             metadata={
                 "type": "Element",
@@ -71,7 +71,7 @@ class Model:
                 "required": True,
             }
         )
-        ruleset: Optional[Ruleset] = field(
+        ruleset: Optional[RuleList] = field(
             default=None,
             metadata={
                 "type": "Element",
@@ -79,7 +79,7 @@ class Model:
                 "required": True,
             }
         )
-        threats: Optional[Threats] = field(
+        threats: Optional[ThreatList] = field(
             default=None,
             metadata={
                 "type": "Element",

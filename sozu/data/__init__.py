@@ -1,10 +1,13 @@
 from sozu.data.model import (
     Diagram,
-    Diagrams,
+    DiagramList,
     Model,
 )
 from sozu.data.template import (
-    Ruleset,
-    Stencils,
-    Threats,
+    Rule,
+    RuleList,
+    Stencil,
+    StencilList,
+    Threat,
+    ThreatList,
 )

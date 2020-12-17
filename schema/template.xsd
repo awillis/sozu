@@ -1,16 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" vc:minVersion="1.1"
     xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
-    targetNamespace="http://schema.amekoshi.com/2020/12/tmt/template"
-    xmlns:tt="http://schema.amekoshi.com/2020/12/tmt/template">
+    xmlns:tt="http://schema.amekoshi.com/2020/12/tmt/template"
+    targetNamespace="http://schema.amekoshi.com/2020/12/tmt/template">
+    <element name="stencil"/>
+    <element name="rule"/>
+    <element name="threat"/>
+    <complexType name="stencilList">
+        <sequence maxOccurs="unbounded">
+            <element ref="tt:stencil"/>
+        </sequence>
+    </complexType>
+    <complexType name="ruleList">
+        <sequence maxOccurs="unbounded">
+            <element ref="tt:rule"/>
+        </sequence>
+    </complexType>
+    <complexType name="threatList">
+        <sequence maxOccurs="unbounded">
+            <element ref="tt:threat"/>
+        </sequence>
+    </complexType>
     <group name="template">
         <sequence>
-            <element ref="tt:stencils"/>
-            <element ref="tt:ruleset"/>
-            <element ref="tt:threats"/>
+            <element name="stencils" type="tt:stencilList"/>
+            <element name="ruleset" type="tt:ruleList"/>
+            <element name="threats" type="tt:threatList"/>
         </sequence>
     </group>
-    <element name="stencils"/>
-    <element name="ruleset"/>
-    <element name="threats"/>
 </schema>
