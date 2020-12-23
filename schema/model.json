@@ -1,0 +1,428 @@
+{
+    "$schema": "https://json-schema.org/draft-04/schema#",
+    "id": "http://schema.amekoshi.com/2020/12/tmt/template#",
+    "definitions": {
+        "diagramList": {
+            "type": "object",
+            "required": ["diagram"],
+            "properties": {
+                "diagram": {
+                    "type": [
+                        "string",
+                        "number",
+                        "integer",
+                        "boolean",
+                        "null",
+                        "object",
+                        "array"
+                    ]
+                }
+            }
+        },
+        "validThreats": {
+            "type": "object",
+            "required": ["threat"],
+            "properties": {
+                "threat": {
+                    "type": "array",
+                    "items": {
+                        "type": [
+                            "string",
+                            "number",
+                            "integer",
+                            "boolean",
+                            "null",
+                            "object",
+                            "array"
+                        ]
+                    },
+                    "minItems": 1
+                }
+            }
+        },
+        "stencil": {
+            "type": "object",
+            "required": [
+                "name",
+                "description",
+                "image",
+                "stencil_id"
+            ],
+            "properties": {
+                "name": {"type": "string"},
+                "description": {"type": "string"},
+                "image": {
+                    "type": "array",
+                    "items": {"type": "integer"}
+                },
+                "stencil_id": {"type": "string"}
+            }
+        },
+        "templateStencilType": {
+            "allOf": [
+                {"$ref": "#/definitions/stencil"},
+                {
+                    "type": "object",
+                    "properties": {}
+                }
+            ]
+        },
+        "boundary": {
+            "required": ["type"],
+            "allOf": [
+                {"$ref": "#/definitions/templateStencilType"},
+                {
+                    "type": "object",
+                    "properties": {
+                        "type": {
+                            "allOf": [
+                                {"type": "string"},
+                                {
+                                    "enum": [
+                                        "line",
+                                        "rectangle",
+                                        "ellipse"
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        "process": {
+            "allOf": [
+                {"$ref": "#/definitions/templateStencilType"},
+                {
+                    "type": "object",
+                    "properties": {}
+                }
+            ]
+        },
+        "dataflow": {
+            "allOf": [
+                {"$ref": "#/definitions/templateStencilType"},
+                {
+                    "type": "object",
+                    "properties": {}
+                }
+            ]
+        },
+        "datastore": {
+            "allOf": [
+                {"$ref": "#/definitions/templateStencilType"},
+                {
+                    "type": "object",
+                    "properties": {}
+                }
+            ]
+        },
+        "function": {
+            "allOf": [
+                {"$ref": "#/definitions/templateStencilType"},
+                {
+                    "type": "object",
+                    "properties": {}
+                }
+            ]
+        },
+        "stencilList": {
+            "type": "object",
+            "required": ["TemplateStencil"],
+            "properties": {
+                "TemplateStencil": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "TemplateStencil": {"$ref": "#/definitions/templateStencilType"}
+                        }
+                    },
+                    "minItems": 1
+                }
+            }
+        },
+        "rule": {
+            "type": "object",
+            "required": [
+                "name",
+                "description",
+                "filter",
+                "stencil_id",
+                "threat_id"
+            ],
+            "properties": {
+                "name": {"type": "string"},
+                "description": {"type": "string"},
+                "filter": {"type": "string"},
+                "stencil_id": {"type": "string"},
+                "threat_id": {"type": "string"}
+            }
+        },
+        "ruleList": {
+            "type": "object",
+            "required": ["rule"],
+            "properties": {
+                "rule": {
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/rule"},
+                    "minItems": 1
+                }
+            }
+        },
+        "threat": {
+            "type": "object",
+            "required": [
+                "name",
+                "threat_id"
+            ],
+            "properties": {
+                "name": {"type": "string"},
+                "threat_id": {"type": "string"}
+            }
+        },
+        "threatList": {
+            "type": "object",
+            "required": ["threat"],
+            "properties": {
+                "threat": {
+                    "type": "array",
+                    "items": {"$ref": "#/definitions/threat"},
+                    "minItems": 1
+                }
+            }
+        },
+        "model.template": {
+            "type": "object",
+            "required": [
+                "author",
+                "id",
+                "name",
+                "version",
+                "stencils",
+                "ruleset",
+                "threats"
+            ],
+            "properties": {
+                "author": {"type": "string"},
+                "id": {"type": "string"},
+                "name": {"type": "string"},
+                "version": {"type": "integer"},
+                "stencils": {"$ref": "#/definitions/stencilList"},
+                "ruleset": {"$ref": "#/definitions/ruleList"},
+                "threats": {"$ref": "#/definitions/threatList"}
+            }
+        },
+        "model": {
+            "type": "object",
+            "required": [
+                "id",
+                "name",
+                "owner",
+                "reviewer",
+                "shortDescription",
+                "longDescription",
+                "diagrams",
+                "validThreats",
+                "template"
+            ],
+            "properties": {
+                "id": {
+                    "type": [
+                        "string",
+                        "number",
+                        "integer",
+                        "boolean",
+                        "null",
+                        "object",
+                        "array"
+                    ]
+                },
+                "name": {
+                    "type": [
+                        "string",
+                        "number",
+                        "integer",
+                        "boolean",
+                        "null",
+                        "object",
+                        "array"
+                    ]
+                },
+                "owner": {
+                    "type": [
+                        "string",
+                        "number",
+                        "integer",
+                        "boolean",
+                        "null",
+                        "object",
+                        "array"
+                    ]
+                },
+                "reviewer": {
+                    "type": [
+                        "string",
+                        "number",
+                        "integer",
+                        "boolean",
+                        "null",
+                        "object",
+                        "array"
+                    ]
+                },
+                "shortDescription": {
+                    "type": [
+                        "string",
+                        "number",
+                        "integer",
+                        "boolean",
+                        "null",
+                        "object",
+                        "array"
+                    ]
+                },
+                "longDescription": {
+                    "type": [
+                        "string",
+                        "number",
+                        "integer",
+                        "boolean",
+                        "null",
+                        "object",
+                        "array"
+                    ]
+                },
+                "diagrams": {"$ref": "#/definitions/diagramList"},
+                "validThreats": {"$ref": "#/definitions/validThreats"},
+                "template": {"$ref": "#/definitions/model.template"}
+            }
+        },
+        "template": {
+            "type": "object",
+            "required": [
+                "author",
+                "id",
+                "name",
+                "version",
+                "stencils",
+                "ruleset",
+                "threats"
+            ],
+            "properties": {
+                "author": {"type": "string"},
+                "id": {"type": "string"},
+                "name": {"type": "string"},
+                "version": {"type": "integer"},
+                "stencils": {"$ref": "#/definitions/stencilList"},
+                "ruleset": {"$ref": "#/definitions/ruleList"},
+                "threats": {"$ref": "#/definitions/threatList"}
+            }
+        },
+        "modelStencilType": {
+            "allOf": [
+                {"$ref": "#/definitions/stencil"},
+                {
+                    "type": "object",
+                    "properties": {}
+                }
+            ]
+        }
+    },
+    "anyOf": [
+        {
+            "type": "object",
+            "properties": {
+                "boundary": {"$ref": "#/definitions/boundary"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "process": {"$ref": "#/definitions/process"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "dataflow": {"$ref": "#/definitions/dataflow"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "datastore": {"$ref": "#/definitions/datastore"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "function": {"$ref": "#/definitions/function"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "model": {"$ref": "#/definitions/model"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "validThreats": {"$ref": "#/definitions/validThreats"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "template": {"$ref": "#/definitions/template"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "rule": {"$ref": "#/definitions/rule"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "threat": {"$ref": "#/definitions/threat"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "diagram": {
+                    "type": [
+                        "string",
+                        "number",
+                        "integer",
+                        "boolean",
+                        "null",
+                        "object",
+                        "array"
+                    ]
+                }
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "TemplateStencil": {"$ref": "#/definitions/templateStencilType"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "name": {"type": "string"}
+            }
+        },
+        {
+            "type": "object",
+            "properties": {
+                "ModelStencil": {"$ref": "#/definitions/modelStencilType"}
+            }
+        }
+    ]
+}

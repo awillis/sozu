@@ -6,7 +6,30 @@
     targetNamespace="http://schema.amekoshi.com/2020/12/tmt/model">
     <import namespace="http://schema.amekoshi.com/2020/12/tmt/template"
         schemaLocation="template.xsd"/>
+    <group name="metadata">
+        <sequence>
+            <element name="id"/>
+            <element name="name"/>
+            <element name="owner"/>
+            <element name="reviewer"/>
+            <element name="shortDescription"/>
+            <element name="longDescription"/>
+        </sequence>
+    </group>
     <element name="diagram"/>
+    <element name="validThreats">
+        <complexType>
+            <sequence maxOccurs="unbounded">
+                <element name="threat">
+                    <unique name="uniqueValidThreat">
+                        <selector xpath="tt:threat"/>
+                        <field xpath="@threat_id"/>
+                        <field xpath="@stencil_id"/>
+                    </unique>
+                </element>
+            </sequence>
+        </complexType>
+    </element>
     <complexType name="diagramList">
         <sequence>
             <element ref="tm:diagram"/>
@@ -15,7 +38,9 @@
     <element name="model">
         <complexType>
             <sequence>
+                <group ref="tm:metadata"/>
                 <element name="diagrams" type="tm:diagramList"/>
+                <element ref="tm:validThreats"/>
                 <element name="template">
                     <complexType>
                         <group ref="tt:template"/>

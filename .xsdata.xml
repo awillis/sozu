@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Config xmlns="http://pypi.org/project/xsdata" version="20.12">
   <Output wsdl="false" maxLineLength="79">
-    <Package>sozu.data</Package>
+    <Package>sozu.tmt</Package>
     <Format>pydata</Format>
     <Structure>filenames</Structure>
     <DocstringStyle>reStructuredText</DocstringStyle>
@@ -13,8 +13,4 @@
     <ModuleName case="snakeCase" safePrefix="mod"/>
     <PackageName case="snakeCase" safePrefix="pkg"/>
   </Conventions>
-  <Aliases>
-    <PackageName source="http://amekoshi.com/2020/tmt/model" target="tm"/>
-    <PackageName source="http://amekoshi.com/2020/tmt/template" target="tt"/>
-  </Aliases>
 </Config>

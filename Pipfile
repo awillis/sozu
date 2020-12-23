@@ -8,11 +8,15 @@ shapely = "*"
 shiboken6 = "*"
 pyside6 = "*"
 dataclasses = "*"
+sqlalchemy = "*"
+xsdata = "*"
+click = "*"
 
 [dev-packages]
+twine = "*"
 coverage = "*"
 pytest = "*"
-xsdata = "*"
+
 
 [requires]
 python_version = "3.9"

@@ -2,13 +2,85 @@
 <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" vc:minVersion="1.1"
     xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
     xmlns:tt="http://schema.amekoshi.com/2020/12/tmt/template"
+    xmlns:abs="http://schema.amekoshi.com/2020/12/tmt/abstract"
     targetNamespace="http://schema.amekoshi.com/2020/12/tmt/template">
-    <element name="stencil"/>
-    <element name="rule"/>
-    <element name="threat"/>
+    <import namespace="http://schema.amekoshi.com/2020/12/tmt/abstract"
+        schemaLocation="abstract.xsd"/>
+    <element name="process" substitutionGroup="abs:TemplateStencil">
+        <complexType>
+            <complexContent>
+                <extension base="abs:templateStencilType"/>
+            </complexContent>
+        </complexType>
+    </element>
+    <element name="function" substitutionGroup="abs:TemplateStencil">
+        <complexType>
+            <complexContent>
+                <extension base="abs:templateStencilType"/>
+            </complexContent>
+        </complexType>
+    </element>
+    <element name="datastore" substitutionGroup="abs:TemplateStencil">
+        <complexType>
+            <complexContent>
+                <extension base="abs:templateStencilType"/>
+            </complexContent>
+        </complexType>
+    </element>
+    <element name="dataflow" substitutionGroup="abs:TemplateStencil">
+        <complexType>
+            <complexContent>
+                <extension base="abs:templateStencilType"/>
+            </complexContent>
+        </complexType>
+    </element>
+    <element name="boundary" substitutionGroup="abs:TemplateStencil">
+        <complexType>
+            <complexContent>
+                <extension base="abs:templateStencilType">
+                    <sequence>
+                        <element name="type">
+                            <simpleType>
+                                <restriction base="string">
+                                    <enumeration value="line"/>
+                                    <enumeration value="rectangle"/>
+                                    <enumeration value="ellipse"/>
+                                </restriction>
+                            </simpleType>
+                        </element>
+                    </sequence>
+                </extension>
+            </complexContent>
+        </complexType>
+    </element>
+    <element name="rule">
+        <complexType>
+            <sequence>
+                <element ref="abs:name"/>
+                <element name="description" type="string"/>
+                <element name="filter" type="string">
+                    <annotation>
+                        <documentation>Filter to be applied to stencil attributes. If a match is
+                            found, the threat should be regarded as valid for a given
+                            model.</documentation>
+                    </annotation>
+                </element>
+            </sequence>
+            <attribute name="stencil_id" type="abs:id" use="required"/>
+            <attribute name="threat_id" type="abs:id" use="required"/>
+        </complexType>
+    </element>
+    <element name="threat">
+        <complexType>
+            <sequence>
+                <element ref="abs:name"/>
+            </sequence>
+            <attribute name="threat_id" type="abs:id" use="required"/>
+        </complexType>
+    </element>
     <complexType name="stencilList">
         <sequence maxOccurs="unbounded">
-            <element ref="tt:stencil"/>
+            <element ref="abs:TemplateStencil"/>
         </sequence>
     </complexType>
     <complexType name="ruleList">
@@ -21,11 +93,41 @@
             <element ref="tt:threat"/>
         </sequence>
     </complexType>
-    <group name="template">
+    <group name="metadata">
         <sequence>
-            <element name="stencils" type="tt:stencilList"/>
-            <element name="ruleset" type="tt:ruleList"/>
-            <element name="threats" type="tt:threatList"/>
+            <element name="author" type="string"/>
+            <element name="id" type="ID"/>
+            <element name="name" type="string"/>
+            <element name="version" type="positiveInteger"/>
         </sequence>
     </group>
+    <group name="template">
+        <sequence>
+            <group ref="tt:metadata"/>
+            <element name="stencils" type="tt:stencilList">
+                <unique name="uniqueStencil">
+                    <selector xpath="abs:TemplateStencil"/>
+                    <field xpath="@stencil_id"/>
+                </unique>
+            </element>
+            <element name="ruleset" type="tt:ruleList">
+                <unique name="uniqueRule">
+                    <selector xpath="tt:rule"/>
+                    <field xpath="@stencil_id"/>
+                    <field xpath="@threat_id"/>
+                </unique>
+            </element>
+            <element name="threats" type="tt:threatList">
+                <unique name="uniqueThreat">
+                    <selector xpath="tt:threat"/>
+                    <field xpath="@threat_id"/>
+                </unique>
+            </element>
+        </sequence>
+    </group>
+    <element name="template">
+        <complexType>
+            <group ref="tt:template"/>
+        </complexType>
+    </element>
 </schema>
