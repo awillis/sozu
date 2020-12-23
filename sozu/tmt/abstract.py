@@ -1,23 +1,16 @@
 from dataclasses import dataclass, field
+from enum import Enum
 from typing import Optional
 
 __NAMESPACE__ = "http://schema.amekoshi.com/2020/12/tmt/abstract"
 
 
-@dataclass
-class Name:
-    class Meta:
-        name = "name"
-        namespace = "http://schema.amekoshi.com/2020/12/tmt/abstract"
-
-    value: Optional[str] = field(
-        default=None,
-        metadata={
-            "min_length": 3,
-            "max_length": 50,
-            "white_space": "collapse",
-        }
-    )
+class StencilType(Enum):
+    PROCESS = "process"
+    FUNCTION = "function"
+    DATASTORE = "datastore"
+    DATAFLOW = "dataflow"
+    BOUNDARY = "boundary"
 
 
 @dataclass
@@ -52,7 +45,14 @@ class Stencil:
             "required": True,
         }
     )
-    stencil_id: Optional[str] = field(
+    type: Optional[StencilType] = field(
+        default=None,
+        metadata={
+            "type": "Attribute",
+            "required": True,
+        }
+    )
+    id: Optional[str] = field(
         default=None,
         metadata={
             "type": "Attribute",
@@ -62,27 +62,3 @@ class Stencil:
             "pattern": r"[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}",
         }
     )
-
-
-@dataclass
-class ModelStencilType(Stencil):
-    class Meta:
-        name = "modelStencilType"
-
-
-@dataclass
-class TemplateStencilType(Stencil):
-    class Meta:
-        name = "templateStencilType"
-
-
-@dataclass
-class ModelStencil(ModelStencilType):
-    class Meta:
-        namespace = "http://schema.amekoshi.com/2020/12/tmt/abstract"
-
-
-@dataclass
-class TemplateStencil(TemplateStencilType):
-    class Meta:
-        namespace = "http://schema.amekoshi.com/2020/12/tmt/abstract"

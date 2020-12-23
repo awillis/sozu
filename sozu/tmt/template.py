@@ -1,12 +1,15 @@
 from dataclasses import dataclass, field
 from enum import Enum
 from typing import List, Optional
-from sozu.tmt.abstract import (
-    TemplateStencil,
-    TemplateStencilType,
-)
+from sozu.tmt.abstract import Stencil as AbstractStencil
 
 __NAMESPACE__ = "http://schema.amekoshi.com/2020/12/tmt/template"
+
+
+class BoundaryType(Enum):
+    LINE = "line"
+    RECTANGLE = "rectangle"
+    ELLIPSE = "ellipse"
 
 
 @dataclass
@@ -17,8 +20,8 @@ class Rule:
     :ivar filter: Filter to be applied to stencil attributes. If a match
         is                             found, the threat should be
         regarded as valid for a given                             model.
-    :ivar stencil_id:
-    :ivar threat_id:
+    :ivar stencil:
+    :ivar threat:
     """
     class Meta:
         name = "rule"
@@ -28,7 +31,6 @@ class Rule:
         default=None,
         metadata={
             "type": "Element",
-            "namespace": "http://schema.amekoshi.com/2020/12/tmt/abstract",
             "required": True,
             "min_length": 3,
             "max_length": 50,
@@ -49,7 +51,7 @@ class Rule:
             "required": True,
         }
     )
-    stencil_id: Optional[str] = field(
+    stencil: Optional[str] = field(
         default=None,
         metadata={
             "type": "Attribute",
@@ -59,7 +61,7 @@ class Rule:
             "pattern": r"[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}",
         }
     )
-    threat_id: Optional[str] = field(
+    threat: Optional[str] = field(
         default=None,
         metadata={
             "type": "Attribute",
@@ -69,6 +71,13 @@ class Rule:
             "pattern": r"[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}",
         }
     )
+
+
+@dataclass
+class Stencil:
+    class Meta:
+        name = "stencil"
+        namespace = "http://schema.amekoshi.com/2020/12/tmt/template"
 
 
 @dataclass
@@ -81,14 +90,13 @@ class Threat:
         default=None,
         metadata={
             "type": "Element",
-            "namespace": "http://schema.amekoshi.com/2020/12/tmt/abstract",
             "required": True,
             "min_length": 3,
             "max_length": 50,
             "white_space": "collapse",
         }
     )
-    threat_id: Optional[str] = field(
+    id: Optional[str] = field(
         default=None,
         metadata={
             "type": "Attribute",
@@ -101,143 +109,79 @@ class Threat:
 
 
 @dataclass
-class Boundary(TemplateStencilType):
+class Boundary:
     class Meta:
         name = "boundary"
-        namespace = "http://schema.amekoshi.com/2020/12/tmt/template"
 
-    type: Optional["Boundary.Type"] = field(
+    name: Optional[str] = field(
         default=None,
         metadata={
             "type": "Element",
+            "namespace": "http://schema.amekoshi.com/2020/12/tmt/abstract",
+            "required": True,
+            "min_length": 3,
+            "max_length": 50,
+            "white_space": "collapse",
+        }
+    )
+    description: Optional[str] = field(
+        default=None,
+        metadata={
+            "type": "Element",
+            "namespace": "http://schema.amekoshi.com/2020/12/tmt/abstract",
             "required": True,
         }
     )
-
-    class Type(Enum):
-        LINE = "line"
-        RECTANGLE = "rectangle"
-        ELLIPSE = "ellipse"
-
-
-@dataclass
-class Dataflow(TemplateStencilType):
-    class Meta:
-        name = "dataflow"
-        namespace = "http://schema.amekoshi.com/2020/12/tmt/template"
-
-
-@dataclass
-class Datastore(TemplateStencilType):
-    class Meta:
-        name = "datastore"
-        namespace = "http://schema.amekoshi.com/2020/12/tmt/template"
-
-
-@dataclass
-class Function(TemplateStencilType):
-    class Meta:
-        name = "function"
-        namespace = "http://schema.amekoshi.com/2020/12/tmt/template"
-
-
-@dataclass
-class Process(TemplateStencilType):
-    class Meta:
-        name = "process"
-        namespace = "http://schema.amekoshi.com/2020/12/tmt/template"
-
-
-@dataclass
-class RuleList:
-    class Meta:
-        name = "ruleList"
-
-    rule: List[Rule] = field(
-        default_factory=list,
+    image: Optional[str] = field(
+        default=None,
         metadata={
-            "type": "Element",
-            "namespace": "http://schema.amekoshi.com/2020/12/tmt/template",
-            "min_occurs": 1,
-        }
-    )
-
-
-@dataclass
-class ThreatList:
-    class Meta:
-        name = "threatList"
-
-    threat: List[Threat] = field(
-        default_factory=list,
-        metadata={
-            "type": "Element",
-            "namespace": "http://schema.amekoshi.com/2020/12/tmt/template",
-            "min_occurs": 1,
-        }
-    )
-
-
-@dataclass
-class StencilList:
-    class Meta:
-        name = "stencilList"
-
-    boundary: List[Boundary] = field(
-        default_factory=list,
-        metadata={
-            "type": "Element",
-            "namespace": "http://schema.amekoshi.com/2020/12/tmt/template",
-            "min_occurs": 1,
-            "sequential": True,
-        }
-    )
-    dataflow: List[Dataflow] = field(
-        default_factory=list,
-        metadata={
-            "type": "Element",
-            "namespace": "http://schema.amekoshi.com/2020/12/tmt/template",
-            "min_occurs": 1,
-            "sequential": True,
-        }
-    )
-    datastore: List[Datastore] = field(
-        default_factory=list,
-        metadata={
-            "type": "Element",
-            "namespace": "http://schema.amekoshi.com/2020/12/tmt/template",
-            "min_occurs": 1,
-            "sequential": True,
-        }
-    )
-    function: List[Function] = field(
-        default_factory=list,
-        metadata={
-            "type": "Element",
-            "namespace": "http://schema.amekoshi.com/2020/12/tmt/template",
-            "min_occurs": 1,
-            "sequential": True,
-        }
-    )
-    process: List[Process] = field(
-        default_factory=list,
-        metadata={
-            "type": "Element",
-            "namespace": "http://schema.amekoshi.com/2020/12/tmt/template",
-            "min_occurs": 1,
-            "sequential": True,
-        }
-    )
-    template_stencil: List[TemplateStencil] = field(
-        default_factory=list,
-        metadata={
-            "name": "TemplateStencil",
             "type": "Element",
             "namespace": "http://schema.amekoshi.com/2020/12/tmt/abstract",
-            "min_occurs": 1,
-            "sequential": True,
+            "required": True,
         }
     )
+    type: Optional[BoundaryType] = field(
+        default=None,
+        metadata={
+            "type": "Element",
+            "namespace": "http://schema.amekoshi.com/2020/12/tmt/template",
+            "required": True,
+        }
+    )
+    id: Optional[str] = field(
+        default=None,
+        metadata={
+            "type": "Attribute",
+            "required": True,
+            "length": 36,
+            "white_space": "collapse",
+            "pattern": r"[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}",
+        }
+    )
+
+
+@dataclass
+class Dataflow(Stencil):
+    class Meta:
+        name = "dataflow"
+
+
+@dataclass
+class Datastore(Stencil):
+    class Meta:
+        name = "datastore"
+
+
+@dataclass
+class Function(Stencil):
+    class Meta:
+        name = "function"
+
+
+@dataclass
+class Process(Stencil):
+    class Meta:
+        name = "process"
 
 
 @dataclass
@@ -274,24 +218,54 @@ class Template:
             "required": True,
         }
     )
-    stencils: Optional[StencilList] = field(
+    stencils: Optional["Template.Stencils"] = field(
         default=None,
         metadata={
             "type": "Element",
             "required": True,
         }
     )
-    ruleset: Optional[RuleList] = field(
+    ruleset: Optional["Template.Ruleset"] = field(
         default=None,
         metadata={
             "type": "Element",
             "required": True,
         }
     )
-    threats: Optional[ThreatList] = field(
+    threats: Optional["Template.Threats"] = field(
         default=None,
         metadata={
             "type": "Element",
             "required": True,
         }
     )
+
+    @dataclass
+    class Stencils:
+        stencil: List[str] = field(
+            default_factory=list,
+            metadata={
+                "type": "Element",
+                "min_occurs": 1,
+            }
+        )
+
+    @dataclass
+    class Ruleset:
+        rule: List[Rule] = field(
+            default_factory=list,
+            metadata={
+                "type": "Element",
+                "min_occurs": 1,
+            }
+        )
+
+    @dataclass
+    class Threats:
+        threat: List[Threat] = field(
+            default_factory=list,
+            metadata={
+                "type": "Element",
+                "min_occurs": 1,
+            }
+        )

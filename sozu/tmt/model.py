@@ -1,9 +1,8 @@
 from dataclasses import dataclass, field
 from typing import List, Optional
 from sozu.tmt.template import (
-    RuleList,
-    StencilList,
-    ThreatList,
+    Rule,
+    Threat,
 )
 
 __NAMESPACE__ = "http://schema.amekoshi.com/2020/12/tmt/model"
@@ -162,7 +161,7 @@ class Model:
                 "required": True,
             }
         )
-        stencils: Optional[StencilList] = field(
+        stencils: Optional["Model.Template.Stencils"] = field(
             default=None,
             metadata={
                 "type": "Element",
@@ -170,7 +169,7 @@ class Model:
                 "required": True,
             }
         )
-        ruleset: Optional[RuleList] = field(
+        ruleset: Optional["Model.Template.Ruleset"] = field(
             default=None,
             metadata={
                 "type": "Element",
@@ -178,7 +177,7 @@ class Model:
                 "required": True,
             }
         )
-        threats: Optional[ThreatList] = field(
+        threats: Optional["Model.Template.Threats"] = field(
             default=None,
             metadata={
                 "type": "Element",
@@ -186,3 +185,36 @@ class Model:
                 "required": True,
             }
         )
+
+        @dataclass
+        class Stencils:
+            stencil: List[str] = field(
+                default_factory=list,
+                metadata={
+                    "type": "Element",
+                    "namespace": "http://schema.amekoshi.com/2020/12/tmt/template",
+                    "min_occurs": 1,
+                }
+            )
+
+        @dataclass
+        class Ruleset:
+            rule: List[Rule] = field(
+                default_factory=list,
+                metadata={
+                    "type": "Element",
+                    "namespace": "http://schema.amekoshi.com/2020/12/tmt/template",
+                    "min_occurs": 1,
+                }
+            )
+
+        @dataclass
+        class Threats:
+            threat: List[Threat] = field(
+                default_factory=list,
+                metadata={
+                    "type": "Element",
+                    "namespace": "http://schema.amekoshi.com/2020/12/tmt/template",
+                    "min_occurs": 1,
+                }
+            )

@@ -1,43 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<template xmlns="http://schema.amekoshi.com/2020/12/tmt/template"
+<template xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
+ xmlns="http://schema.amekoshi.com/2020/12/tmt/template"
  xmlns:abs="http://schema.amekoshi.com/2020/12/tmt/abstract"
- xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://schema.amekoshi.com/2020/12/tmt/template file:/C:/Users/alan/PycharmProjects/sozu/schema/template.xsd">
-    <author>X.3GxVSJ14udXppVgi2BdYvxF</author>
+    <author>R1YrkgLnZrqT</author>
     <id>ID000</id>
-    <name>a_eSHc3nRC3SJiZMind</name>
-    <version>1195418725</version>
+    <name>Jzlxdg38VEnvovx</name>
+    <version>1809845359</version>
     <stencils>
-        <process stencil_id="A1111111-1111-1111-1111-111111111111">
-            <abs:name>BoQvtBqkPDdFhVRhosbx7CV31hqicxvbMVRBwmW</abs:name>
-            <abs:description>AUWAUIxOYyB..FB</abs:description>
-            <abs:image>75747673886966808788787766768182767878768276698879757369738776748772858578666582888881768671696765778868</abs:image>
-        </process>
-        <function stencil_id="B2222222-2222-2222-2222-222222222222">
-            <abs:name>hX_7kSvK4O</abs:name>
-            <abs:description>b</abs:description>
-            <abs:image>77828884876887767975748785786775807970868190816579837084756567827589688975656981</abs:image>
-        </function>
+        <stencil type="process" id="Bb43ffA0-ba0A-8edD-DB8F-aa4eEDA787bb">
+            <abs:name>wwwoo</abs:name>
+            <abs:description>W1bp-22YZYYnd.cVNCkjhm8kW</abs:description>
+            <abs:image>696670877170668477856966888973788768879065837188</abs:image>
+        </stencil>
+        <stencil type="boundary" id="67C26fbE-86FD-D3F4-CAe8-CbAD9CCaBedC">
+            <abs:name>P2P.2p_rPeyelfWp-tL.Qzfba_lKO36</abs:name>
+            <abs:description>NEJQGyeO1Eihza</abs:description>
+            <abs:image>678784778285738167896766747578817386848887836980707584897676676586716681</abs:image>
+            <type>line</type>
+        </stencil>
     </stencils>
     <ruleset>
-        <rule stencil_id="B2222222-2222-2222-2222-222222222221" threat_id="F6666666-6666-6666-6666-666666666666">
-            <abs:name>yFDfN0RqhKtteZDBFke0Aqb.9YrcLQOl</abs:name>
-            <description>tvwHc82FYVC</description>
-            <filter>p_tQ7QK.M1ng</filter>
+        <rule stencil="Afdabaee-3DeC-7EfA-a8Ab-caf7f78b60De" threat="Bddde1d7-b36D-0CbA-BACa-2A16DfCfBAEf">
+            <name>bQUGqZcwHsUl11rAc2gZMa395tXp.sThj1hA9Ic</name>
+            <description>u6</description>
+            <filter>gB_xelYNWl2Spn-FchD1OPX.GJv</filter>
         </rule>
-        <rule stencil_id="C3333333-3333-3333-3333-333333333333" threat_id="F6666666-6666-6666-6666-666666666661">
-            <abs:name>P_ZncWrNHL0E3ynQ8ypL3Ep5n0cmpp</abs:name>
-            <description>CfURL</description>
-            <filter>T</filter>
+        <rule stencil="CeBB9b2A-B71C-eae4-fDd0-FaDDeBC4Aabd" threat="D0AeaDBd-1BAa-e6D6-2Cfe-E0DfbFed3c0c">
+            <name>Rjk1</name>
+            <description>Zbeywwm3XhwDWMBTvId6Cvt_Xqtn-</description>
+            <filter>p8</filter>
         </rule>
     </ruleset>
     <threats>
-        <threat threat_id="D4444444-4444-4444-4444-444444444444">
-            <abs:name>p89MbH.w__NdLvCoPRp2JazZOf2xLySkbxU.RaEP</abs:name>
+        <threat id="ED196F6F-AAeb-7FDc-CBCA-838DAeBeb96F">
+            <name>kkbCpRDPpNL</name>
         </threat>
-        <threat threat_id="F6666666-6666-6666-6666-666666666662">
-            <abs:name>Glb9AG8vQ1Mq8fHJ51OFUa-WaMWa3BO1nJbhu_F9A7u</abs:name>
+        <threat id="A7Bd2CF8-aCa9-2D3A-Ee35-08B49c8bFaac">
+            <name>jwAN6jgHMS.</name>
         </threat>
     </threats>
 </template>

@@ -1,10 +1,6 @@
 from sozu.tmt.abstract import (
-    ModelStencil,
-    TemplateStencil,
-    ModelStencilType,
-    Name,
-    Stencil,
-    TemplateStencilType,
+    Stencil as AbstractStencil,
+    StencilType,
 )
 from sozu.tmt.model import (
     Diagram,
@@ -14,14 +10,13 @@ from sozu.tmt.model import (
 )
 from sozu.tmt.template import (
     Boundary,
+    BoundaryType,
     Dataflow,
     Datastore,
     Function,
     Process,
     Rule,
-    RuleList,
-    StencilList,
+    Stencil as TemplateStencil,
     Template,
     Threat,
-    ThreatList,
 )
