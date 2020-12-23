@@ -5,7 +5,12 @@
     xmlns:abs="http://schema.amekoshi.com/2020/12/tmt/abstract"
     xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning">
     <simpleType name="id">
-        <restriction base="token">
+        <restriction base="positiveInteger">
+            <whiteSpace value="collapse"/>
+        </restriction>
+    </simpleType>
+    <simpleType name="uuid">
+        <restriction base="ID">
             <whiteSpace value="collapse"/>
             <length value="36" fixed="true"/>
             <pattern
@@ -36,6 +41,6 @@
             <element name="image" type="base64Binary"/>
         </sequence>
         <attribute name="type" type="abs:stencilType" use="required"/>
-        <attribute name="id" type="abs:id" use="required"/>
+        <attribute name="id" type="abs:uuid" use="required"/>
     </complexType>
 </schema>

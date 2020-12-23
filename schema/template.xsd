@@ -64,8 +64,8 @@
                     </annotation>
                 </element>
             </sequence>
-            <attribute name="stencil" type="abs:id" use="required"/>
-            <attribute name="threat" type="abs:id" use="required"/>
+            <attribute name="stencil" type="abs:uuid" use="required"/>
+            <attribute name="threat" type="abs:uuid" use="required"/>
         </complexType>
     </element>
     <element name="threat">
@@ -73,13 +73,13 @@
             <sequence>
                 <element name="name" type="abs:name"/>
             </sequence>
-            <attribute name="id" type="abs:id" use="required"/>
+            <attribute name="id" type="abs:uuid" use="required"/>
         </complexType>
     </element>
     <group name="metadata">
         <sequence>
             <element name="author" type="string"/>
-            <element name="id" type="ID"/>
+            <element name="id" type="abs:uuid"/>
             <element name="name" type="string"/>
             <element name="version" type="positiveInteger"/>
         </sequence>

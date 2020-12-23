@@ -202,6 +202,9 @@ class Template:
         metadata={
             "type": "Element",
             "required": True,
+            "length": 36,
+            "white_space": "collapse",
+            "pattern": r"[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}",
         }
     )
     name: Optional[str] = field(
