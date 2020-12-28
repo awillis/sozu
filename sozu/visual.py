@@ -12,10 +12,8 @@ def main():
     app = QGuiApplication(sys.argv)
     app.setAttribute(Qt.AA_EnableHighDpiScaling)
 
-    # QApplication must be parent of QQmlApplicationEngine to prevent segfault on app exit
+    # per matplotlib, setting QApplication as parent prevents segfault on app exit
     engine = QQmlApplicationEngine(parent=app)
-    context = engine.rootContext()
-    # context.setContextProperty()
 
     engine.load(QUrl.fromLocalFile(qml))
 
