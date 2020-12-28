@@ -56,13 +56,12 @@
             <sequence>
                 <element name="name" type="abs:name"/>
                 <element name="description" type="string"/>
-                <element name="filter" type="string">
+                <element name="include" type="string">
                     <annotation>
-                        <documentation>Filter to be applied to stencil attributes. If a match is
-                            found, the threat should be regarded as valid for a given
-                            model.</documentation>
+                        <documentation>Filter to be applied to stencil attributes. If a match is found, the threat should be regarded as valid for a given model.</documentation>
                     </annotation>
                 </element>
+                <element name="exclude" type="string"/>
             </sequence>
             <attribute name="stencil" type="abs:uuid" use="required"/>
             <attribute name="threat" type="abs:uuid" use="required"/>

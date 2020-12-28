@@ -1,0 +1,3 @@
+{
+    "files": ["sozu/interface.py", "sozu/main.qml", "sozu/chooser.ui.qml"]
+}

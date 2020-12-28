@@ -3,9 +3,12 @@
     xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
     xmlns:tm="http://schema.amekoshi.com/2020/12/tmt/model"
     xmlns:tt="http://schema.amekoshi.com/2020/12/tmt/template"
-    targetNamespace="http://schema.amekoshi.com/2020/12/tmt/model">
+    targetNamespace="http://schema.amekoshi.com/2020/12/tmt/model"
+    xmlns:abs="http://schema.amekoshi.com/2020/12/tmt/abstract">
     <import namespace="http://schema.amekoshi.com/2020/12/tmt/template"
         schemaLocation="template.xsd"/>
+    <import namespace="http://schema.amekoshi.com/2020/12/tmt/abstract"
+        schemaLocation="abstract.xsd"/>
     <group name="metadata">
         <sequence>
             <element name="id"/>
@@ -16,31 +19,43 @@
             <element name="longDescription"/>
         </sequence>
     </group>
-    <element name="diagram"/>
-    <element name="validThreats">
+    <element name="diagram">
         <complexType>
-            <sequence maxOccurs="unbounded">
-                <element name="threat">
-                    <unique name="uniqueValidThreat">
-                        <selector xpath="tt:threat"/>
-                        <field xpath="@threat_id"/>
-                        <field xpath="@stencil_id"/>
-                    </unique>
-                </element>
+            <sequence>
+                <element name="name" type="abs:name"/>
+                <element name="scope" nillable="true" type="string"/>
+                <element name="abstract" type="tm:layer"/>
+                <element name="logical" type="tm:layer"/>
+                <element name="physical" type="tm:layer"/>
             </sequence>
+            <attribute name="id" type="abs:uuid"/>
         </complexType>
     </element>
-    <complexType name="diagramList">
-        <sequence>
-            <element ref="tm:diagram"/>
-        </sequence>
+    <complexType name="layer">
+        <all>
+            <element name="targets"/>
+            <element name="flows"/>
+        </all>
     </complexType>
+    <element name="risk"/>
     <element name="model">
         <complexType>
             <sequence>
                 <group ref="tm:metadata"/>
-                <element name="diagrams" type="tm:diagramList"/>
-                <element ref="tm:validThreats"/>
+                <element name="diagrams">
+                    <complexType>
+                        <sequence maxOccurs="unbounded">
+                            <element ref="tm:diagram"/>
+                        </sequence>
+                    </complexType>
+                </element>
+                <element name="risks">
+                    <complexType>
+                        <sequence maxOccurs="unbounded">
+                            <element ref="tm:risk"/>
+                        </sequence>
+                    </complexType>
+                </element>
                 <element name="template">
                     <complexType>
                         <group ref="tt:template"/>

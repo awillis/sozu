@@ -11,12 +11,12 @@ dataclasses = "*"
 sqlalchemy = "*"
 xsdata = "*"
 click = "*"
+semver = "*"
 
 [dev-packages]
 twine = "*"
 coverage = "*"
 pytest = "*"
-
 
 [requires]
 python_version = "3.9"
