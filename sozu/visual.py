@@ -1,9 +1,9 @@
 import sys
 
 from pathlib import Path
-from PySide6.QtCore import QUrl
-from PySide6.QtGui import Qt, QGuiApplication
-from PySide6.QtQml import QQmlApplicationEngine
+from PySide2.QtCore import QUrl
+from PySide2.QtGui import Qt, QGuiApplication
+from PySide2.QtQml import QQmlApplicationEngine
 
 
 def main():

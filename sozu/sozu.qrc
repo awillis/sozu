@@ -1,0 +1,9 @@
+<RCC version="1.0">
+    <qresource prefix="/qml">
+        <file alias="main">main.qml</file>
+        <file alias="chooser">chooser.ui.qml</file>
+    </qresource>
+    <qresource prefix="/config">
+        <file alias="quickcontrols">qtquickcontrols2.conf</file>
+    </qresource>
+</RCC>

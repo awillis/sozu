@@ -12,6 +12,7 @@ sqlalchemy = "*"
 xsdata = "*"
 click = "*"
 semver = "*"
+pyside2 = "*"
 
 [dev-packages]
 twine = "*"
