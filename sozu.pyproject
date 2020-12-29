@@ -1,9 +1,8 @@
 {
     "files": [
-        "sozu/interface.py",
-        "sozu/main.ui.qml",
-        "sozu/chooser.ui.qml",
-        "sozu/qtquickcontrols2.conf",
-        "sozu/sozu.qrc"
+        "sozu/graphical.py",
+        "sozu/main.qml",
+        "sozu/qml/dev/sozu/Selector.ui.qml",
+        "sozu/qtquickcontrols2.conf"
     ]
 }
