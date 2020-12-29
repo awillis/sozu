@@ -2,7 +2,6 @@
     "files": [
         "sozu/graphical.py",
         "sozu/main.qml",
-        "sozu/qml/dev/sozu/Selector.ui.qml",
-        "sozu/qtquickcontrols2.conf"
+        "sozu/qml/dev/sozu/Selector.ui.qml"
     ]
 }

@@ -42,23 +42,18 @@ ApplicationWindow {
 
     header: ToolBar {
         id: toolBar
-        x: 0
-        y: 0
-        width: root.width
-        height: 100
+        width: implicitBackgroundWidth
+        height: implicitBackgroundHeight
     }
 
     footer: TabBar {
         id: tabBar
-        x: 0
-        y: 0
-        width: root.width
-        height: 100
+        width: implicitBackgroundWidth
+        height: implicitBackgroundHeight
     }
 
     StackView {
         id: stackView
-        initialItem: Selector
         anchors.fill: parent
     }
 }
