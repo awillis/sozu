@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schema elementFormDefault="qualified"
-    targetNamespace="http://schema.amekoshi.com/2020/12/tmt/abstract" vc:minVersion="1.1"
+    targetNamespace="http://schemata.sozu.dev/2020/12/tmt/abstract" vc:minVersion="1.1"
     xmlns="http://www.w3.org/2001/XMLSchema"
-    xmlns:abs="http://schema.amekoshi.com/2020/12/tmt/abstract"
+    xmlns:abs="http://schemata.sozu.dev/2020/12/tmt/abstract"
     xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning">
     <simpleType name="id">
         <restriction base="positiveInteger">

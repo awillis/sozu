@@ -4,5 +4,5 @@
     <resource url="http://schema.amekoshi.com/2020/12/tmt/model" location="$PROJECT_DIR$/schema/model.xsd" />
     <resource url="http://schema.amekoshi.com/2020/12/tmt/template" location="$PROJECT_DIR$/schema/template.xsd" />
   </component>
-  <component name="ProjectRootManager" version="2" project-jdk-name="Pipenv (sozu)" project-jdk-type="Python SDK" />
+  <component name="ProjectRootManager" version="2" project-jdk-name="Pipenv (sozu-tmt)" project-jdk-type="Python SDK" />
 </project>

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" vc:minVersion="1.1"
     xmlns:vc="http://www.w3.org/2007/XMLSchema-versioning"
-    xmlns:tm="http://schema.amekoshi.com/2020/12/tmt/model"
-    xmlns:tt="http://schema.amekoshi.com/2020/12/tmt/template"
-    targetNamespace="http://schema.amekoshi.com/2020/12/tmt/model"
-    xmlns:abs="http://schema.amekoshi.com/2020/12/tmt/abstract">
-    <import namespace="http://schema.amekoshi.com/2020/12/tmt/template"
+    xmlns:tm="http://schemata.sozu.dev/2020/12/tmt/model"
+    xmlns:tt="http://schemata.sozu.dev/2020/12/tmt/template"
+    targetNamespace="http://schemata.sozu.dev/2020/12/tmt/model"
+    xmlns:abs="http://schemata.sozu.dev/2020/12/tmt/abstract">
+    <import namespace="http://schemata.sozu.dev/2020/12/tmt/template"
         schemaLocation="template.xsd"/>
-    <import namespace="http://schema.amekoshi.com/2020/12/tmt/abstract"
+    <import namespace="http://schemata.sozu.dev/2020/12/tmt/abstract"
         schemaLocation="abstract.xsd"/>
     <group name="metadata">
         <sequence>

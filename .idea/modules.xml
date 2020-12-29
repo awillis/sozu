@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/sozu.iml" filepath="$PROJECT_DIR$/.idea/sozu.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/sozu-tmt.iml" filepath="$PROJECT_DIR$/.idea/sozu-tmt.iml" />
     </modules>
   </component>
 </project>

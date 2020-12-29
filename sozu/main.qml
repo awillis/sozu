@@ -1,28 +1,19 @@
-import QtQuick.Controls 2.0
+import QtQuick 2.12
+import QtQuick.Controls 2.12
 
 ApplicationWindow {
     id: root
+    width: 800
+    height: 600
     visible: true
-    active: true
-    title: qsTr("Sozu Threat Modeler")
-
-/*
-    contentItem {
-        minimumWidth: 800
-        minimumHeight: 600
-    }
-    toolBar: ToolBar {}
-    statusBar: StatusBar {}
-*/
 
     menuBar: MenuBar {}
 
+    header: ToolBar {}
 
+    footer: TabBar {}
+
+    StackView {
+        anchors.fill: parent
+    }
 }
-
-/*##^##
-Designer {
-    D{i:0;autoSize:true}
-}
-##^##*/
-

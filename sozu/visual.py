@@ -1,9 +1,11 @@
 import sys
+import qml_rc
 
 from pathlib import Path
-from PySide2.QtCore import QUrl
-from PySide2.QtGui import Qt, QGuiApplication
-from PySide2.QtQml import QQmlApplicationEngine
+from PySide6.QtCore import QUrl, QResource
+from PySide6.QtGui import Qt, QGuiApplication
+from PySide6.QtQml import QQmlApplicationEngine
+from pprint import pprint as pp
 
 
 def main():
@@ -14,8 +16,8 @@ def main():
 
     # per matplotlib, setting QApplication as parent prevents segfault on app exit
     engine = QQmlApplicationEngine(parent=app)
-
-    engine.load(QUrl.fromLocalFile(qml))
+    url = QUrl.fromLocalFile(qml)
+    engine.load(url)
 
     if not engine.rootObjects():
         sys.exit(-1)
