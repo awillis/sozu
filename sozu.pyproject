@@ -2,6 +2,8 @@
     "files": [
         "sozu/graphical.py",
         "sozu/main.qml",
-        "sozu/qml/dev/sozu/Selector.ui.qml"
+        "sozu/Selector.ui.qml",
+        "sozu/qml/dev/sozu/template/Editor.ui.qml",
+        "sozu/qml/dev/sozu/threatmodel/Editor.ui.qml"
     ]
 }

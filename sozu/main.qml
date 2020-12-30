@@ -1,7 +1,6 @@
 import QtQuick 2.12
 import QtQuick.Controls 2.12
 import QtQuick.Controls.Material 2.12
-import dev.sozu 1.0
 
 ApplicationWindow {
     id: root
@@ -16,6 +15,10 @@ ApplicationWindow {
     Material.accent: Material.Green
 
     menuBar: MenuBar {
+        id: rootMenu
+        width: implicitBackgroundWidth
+        height: 50
+
         Menu {
             title: qsTr("&File")
 
@@ -41,19 +44,27 @@ ApplicationWindow {
     }
 
     header: ToolBar {
-        id: toolBar
+        id: rootTool
         width: implicitBackgroundWidth
-        height: implicitBackgroundHeight
+        height: 50
     }
 
     footer: TabBar {
-        id: tabBar
+        id: rootTab
         width: implicitBackgroundWidth
-        height: implicitBackgroundHeight
+        height: 50
     }
 
     StackView {
         id: stackView
         anchors.fill: parent
+        initialItem: rootSelector
+    }
+
+    Selector {
+        id: rootSelector
+        x: 488
+        y: 215
+        transformOrigin: Item.TopLeft
     }
 }
