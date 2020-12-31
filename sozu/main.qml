@@ -1,14 +1,15 @@
 import QtQuick 2.12
+import QtQuick.Layouts 1.12
 import QtQuick.Controls 2.12
 import QtQuick.Controls.Material 2.12
 
 ApplicationWindow {
     id: root
-    title: "sozu modeler"
+    title: "sozu threat modeler"
     visible: true
 
-    minimumWidth: 800
-    minimumHeight: 600
+    minimumWidth: 640
+    minimumHeight: 480
 
     Material.theme: Material.System
     Material.primary: Material.BlueGrey
@@ -73,32 +74,40 @@ ApplicationWindow {
         height: 50
     }
 
-    GridView {
+    GridLayout {
+
         id: mainGrid
         anchors.fill: parent
-        anchors.margins: 30
 
         Selector {
             id: templateNewSelector
-            anchors.fill: parent
+            Layout.margins: 20
+            Layout.column: 0
+            Layout.row: 0
             blurb: qsTr("Create a new template")
         }
 
         Selector {
             id: templateOpenSelector
-            anchors.fill: parent
+            Layout.margins: 20
+            Layout.column: 1
+            Layout.row: 0
             blurb: qsTr("Open an existing template")
         }
 
         Selector {
             id: modelNewSelector
-            anchors.fill: parent
+            Layout.margins: 20
+            Layout.column: 0
+            Layout.row: 1
             blurb: qsTr("Create a new model from a template")
         }
 
         Selector {
             id: modelOpenSelector
-            anchors.fill: parent
+            Layout.margins: 20
+            Layout.column: 1
+            Layout.row: 1
             blurb: qsTr("Open an existing model")
         }
     }
