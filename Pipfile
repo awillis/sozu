@@ -16,7 +16,6 @@ semver = ">=2"
 twine = "*"
 coverage = "*"
 pytest = "*"
-epdb = "*"
 
 [requires]
-python_version = "3.9"
+python_version = "3.7"
