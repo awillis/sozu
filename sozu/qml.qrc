@@ -1,5 +1,0 @@
-<RCC version="1.0">
-    <qresource prefix="/qt-project.org/imports/dev.sozu.qml">
-        <file alias="Selector.ui.qml">qml/Selector.ui.qml</file>
-    </qresource>
-</RCC>

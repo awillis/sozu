@@ -2,7 +2,9 @@
     "files": [
         "sozu/graphical.py",
         "sozu/main.qml",
-        "sozu/Selector.ui.qml",
+        "sozu/MainView.ui.qml",
+        "sozu/qml/dev/sozu/selector/Create.ui.qml",
+        "sozu/qml/dev/sozu/selector/Open.ui.qml",
         "sozu/qml/dev/sozu/template/Editor.ui.qml",
         "sozu/qml/dev/sozu/threatmodel/Editor.ui.qml",
         "sozu/qml/dev/sozu/threatmodel3d/Editor.ui.qml"

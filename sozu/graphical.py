@@ -1,7 +1,7 @@
 import sys
 
 from pathlib import Path
-from PySide6.QtCore import QUrl
+from PySide6.QtCore import QUrl, QResource
 from PySide6.QtGui import Qt, QGuiApplication
 from PySide6.QtQml import QQmlApplicationEngine
 
@@ -10,6 +10,7 @@ def main():
 
     appdir = Path(__file__).parent
     qml = str(appdir.joinpath('main.qml'))
+    rcc = str(appdir.joinpath('main.rcc'))
     app = QGuiApplication(sys.argv)
     app.setAttribute(Qt.AA_EnableHighDpiScaling)
 
