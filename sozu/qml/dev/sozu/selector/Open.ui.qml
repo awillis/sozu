@@ -1,7 +1,7 @@
 import QtQuick 2.12
 import QtQuick.Layouts 2.12
 import QtQuick.Controls 2.12
-import QtQuick.Controls.Material 2.12
+import QtQuick.Controls.Universal 2.12
 
 Item {
     id: selector
@@ -50,3 +50,4 @@ Designer {
     D{i:0;autoSize:true;formeditorZoom:0.66;height:480;width:640}
 }
 ##^##*/
+

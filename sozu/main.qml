@@ -1,7 +1,7 @@
 import QtQuick 2.12
 import QtQuick.Layouts 2.12
 import QtQuick.Controls 2.12
-import QtQuick.Controls.Material 2.0
+import QtQuick.Controls.Universal 2.12
 
 ApplicationWindow {
     id: root
@@ -11,9 +11,10 @@ ApplicationWindow {
     minimumWidth: 640
     minimumHeight: 480
 
-    Material.theme: Material.Dark
-    Material.primary: Material.BlueGrey
-    Material.accent: Material.Green
+    Universal.theme: Universal.System
+    Universal.accent: Universal.Olive
+    Universal.foreground: Universal.White
+    Universal.background: Universal.Steel
 
     menuBar: MenuBar {
         id: mainMenu
@@ -64,6 +65,14 @@ ApplicationWindow {
 
         Menu {
             title: qsTr("&View")
+
+            //            Action {
+            //                id: darkMode
+            //                text: qsTr("Dark Mode")
+            //                checkable: true
+            //                enabled: false
+            //                onCheckedChanged:
+            //            }
         }
 
         Menu {
