@@ -45,7 +45,7 @@ ApplicationWindow {
             Action {
                 id: quit
                 text: qsTr("&Quit")
-                onTriggered: QtQuick.quit()
+                onTriggered: Qt.quit()
             }
         }
 
