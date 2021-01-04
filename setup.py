@@ -41,10 +41,10 @@ setup(
     data_files=[],
     entry_points={
         'console_scripts': [
-            'sozuctl=sozu.console:main'
+            'sozuctl=sozu.sozuctl:main'
         ],
         'gui_scripts': [
-            'sozu=sozu.graphical:main'
+            'sozu=sozu.sozu:main'
         ]
     }
 )

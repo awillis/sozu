@@ -1,8 +1,8 @@
 {
     "files": [
-        "sozu/graphical.py",
-        "sozu/main.qml",
-        "sozu/MainView.ui.qml",
+        "sozu/sozu.py",
+        "sozu/sozu.qml",
+        "sozu/SozuMain.ui.qml",
         "sozu/qml/dev/sozu/selector/Create.ui.qml",
         "sozu/qml/dev/sozu/selector/Open.ui.qml",
         "sozu/qml/dev/sozu/template/Editor.ui.qml",

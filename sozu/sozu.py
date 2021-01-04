@@ -10,7 +10,7 @@ from PySide6.QtQuickControls2 import QQuickStyle
 def main():
 
     appdir = Path(__file__).parent
-    qml = str(appdir.joinpath('main.qml'))
+    qml = str(appdir.joinpath('sozu.qml'))
 
     # setup app with style
     app = QGuiApplication(sys.argv)

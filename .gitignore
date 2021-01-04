@@ -182,6 +182,7 @@ target_wrapper.*
 # QtCreator Qml
 *.qmlproject.user
 *.qmlproject.user.*
+*.qmlproject.qtds
 *.pyproject.user
 *.pyproject.user.*
 *.pyproject.qtds

@@ -16,6 +16,7 @@
     <projectTree name="sozu.xpr">
         <folder masterFiles="true" name="Master Files">
             <file name="schema/model.xsd"/>
+            <file name="schema/template.xsd"/>
         </folder>
         <folder path="."/>
     </projectTree>

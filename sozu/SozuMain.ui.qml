@@ -6,7 +6,7 @@ import "qml/dev/sozu/selector" as Selector
 
 Item {
 
-    id: mainView
+    id: mainItem
     focus: true
     activeFocusOnTab: true
 

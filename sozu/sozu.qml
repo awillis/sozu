@@ -12,8 +12,8 @@ ApplicationWindow {
     minimumHeight: 480
 
     Universal.theme: Universal.System
-    Universal.accent: Universal.Olive
-    Universal.foreground: Universal.White
+    Universal.accent: Universal.White
+    Universal.foreground: Universal.Olive
     Universal.background: Universal.Steel
 
     menuBar: MenuBar {
@@ -82,7 +82,7 @@ ApplicationWindow {
             }
         }
     }
-    MainView {
-        id: mainView
+    SozuMain {
+        id: main
     }
 }
