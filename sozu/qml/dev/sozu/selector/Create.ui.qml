@@ -1,5 +1,5 @@
 import QtQuick 2.12
-import QtQuick.Layouts 2.12
+import QtQuick.Layouts 1.12
 import QtQuick.Controls 2.12
 import QtQuick.Controls.Universal 2.12
 
@@ -9,6 +9,8 @@ Item {
     activeFocusOnTab: true
 
     property string blurb: selectDesc.text
+    width: 200
+    height: 150
 
     Rectangle {
         id: selectRect
@@ -47,7 +49,7 @@ Item {
 
 /*##^##
 Designer {
-    D{i:0;autoSize:true;formeditorZoom:0.5;height:480;width:640}
+    D{i:0;formeditorZoom:0.5}
 }
 ##^##*/
 

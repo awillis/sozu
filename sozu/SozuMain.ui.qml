@@ -1,5 +1,5 @@
 import QtQuick 2.12
-import QtQuick.Layouts 2.12
+import QtQuick.Layouts 1.12
 import QtQuick.Controls 2.12
 import QtQuick.Controls.Universal 2.12
 import "qml/dev/sozu/selector" as Selector
@@ -59,7 +59,7 @@ Item {
 
 /*##^##
 Designer {
-    D{i:0;autoSize:true;height:480;width:640}
+    D{i:0;autoSize:true;formeditorZoom:0.33;height:480;width:640}
 }
 ##^##*/
 
