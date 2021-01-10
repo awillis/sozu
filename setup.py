@@ -44,7 +44,7 @@ setup(
             'sozuctl=sozu.sozuctl:main'
         ],
         'gui_scripts': [
-            'sozu=sozu.sozu:main'
+            'sozu=sozu.sozufe:main'
         ]
     }
 )

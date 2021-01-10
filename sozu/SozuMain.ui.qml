@@ -2,7 +2,7 @@ import QtQuick 2.12
 import QtQuick.Layouts 1.12
 import QtQuick.Controls 2.12
 import QtQuick.Controls.Universal 2.12
-import "qml/dev/sozu/selector" as Selector
+import "qml/dev/sozu/editor" as Editor
 
 Item {
 
@@ -14,8 +14,10 @@ Item {
 
         id: mainGrid
         anchors.fill: parent
+        rows: 2
+        columns: 2
 
-        Selector.Create {
+        Editor.Create {
             id: templateCreateSelector
             Layout.preferredWidth: 200
             Layout.preferredHeight: 150
@@ -25,7 +27,7 @@ Item {
             blurb: qsTr("Create a new template")
         }
 
-        Selector.Open {
+        Editor.Open {
             id: templateOpenSelector
             Layout.preferredWidth: 200
             Layout.preferredHeight: 150
@@ -35,7 +37,7 @@ Item {
             blurb: qsTr("Open an existing template")
         }
 
-        Selector.Create {
+        Editor.Create {
             id: modelCreateSelector
             Layout.preferredWidth: 200
             Layout.preferredHeight: 150
@@ -45,7 +47,7 @@ Item {
             blurb: qsTr("Create a new model from a template")
         }
 
-        Selector.Open {
+        Editor.Open {
             id: modelOpenSelector
             Layout.preferredWidth: 200
             Layout.preferredHeight: 150

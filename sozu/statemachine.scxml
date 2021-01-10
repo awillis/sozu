@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scxml xmlns="http://www.w3.org/2005/07/scxml" version="1.0" binding="early" xmlns:qt="http://www.qt.io/2015/02/scxml-ext" name="sozu" qt:editorversion="2.0.0">
+    <state id="selector" initial="selector::ready">
+        <qt:editorinfo geometry="98.43;45.19;-313.50;-244.17;492.09;747.33" scenegeometry="98.43;45.19;-215.07;-198.98;492.09;747.33"/>
+        <transition type="external" target="final" event="onQuit"/>
+        <state id="selector::ready">
+            <qt:editorinfo geometry="-69.94;181.27;-222.62;-159.75;440.65;248.84" scenegeometry="28.49;226.46;-194.13;66.71;440.65;248.84"/>
+            <state id="selector::ready::display">
+                <qt:editorinfo geometry="-47.40;-29.71;-155.22;-50;215.22;146" scenegeometry="-18.91;196.75;-174.13;146.75;215.22;146"/>
+                <transition type="external" event="onClickCreate" target="Selector::create">
+                    <qt:editorinfo endTargetFactors="11.95;87.44"/>
+                </transition>
+                <transition type="external" event="onClickOpen">
+                    <qt:editorinfo endTargetFactors="36.44;24.87"/>
+                </transition>
+                <transition type="external" event="onClickOptions" target="selector::ready::options">
+                    <qt:editorinfo endTargetFactors="9.70;52.17"/>
+                </transition>
+            </state>
+            <state id="selector::ready::options">
+                <qt:editorinfo geometry="134.75;-29.71;-60;-50;120;148.80" scenegeometry="163.24;196.75;103.24;146.75;120;148.80"/>
+            </state>
+        </state>
+        <state id="selector::create">
+            <qt:editorinfo geometry="-17.30;-63.92;-266.79;-95.41;431.27;176.86" scenegeometry="81.13;-18.73;-185.66;-114.14;431.27;176.86"/>
+            <transition type="internal" event="setLocation" cond="database">
+                <qt:editorinfo endTargetFactors="13.15;30.74"/>
+            </transition>
+            <transition type="external" event="configDB"/>
+            <state id="selector::create::State_7">
+                <qt:editorinfo geometry="53.14;5.20;-60;-50;122.77;100" scenegeometry="134.27;-13.53;74.27;-63.53;122.77;100"/>
+            </state>
+        </state>
+        <state id="selector::open">
+            <qt:editorinfo geometry="-119.10;321.83;-174.40;-52.85;430.27;214.18" scenegeometry="-20.67;367.02;-195.07;314.17;430.27;214.18"/>
+            <transition type="internal" event="getLocation"/>
+        </state>
+        <datamodel>
+            <data/>
+        </datamodel>
+    </state>
+    <state id="editor">
+        <qt:editorinfo geometry="328.73;-156.28;113.34;-53.96;405.87;714.19" scenegeometry="328.73;-156.28;442.07;-210.24;405.87;714.19"/>
+        <transition type="external" event="OnQuit" target="final"/>
+    </state>
+    <final id="final">
+        <qt:editorinfo geometry="376.49;173.42;-20;-20;40;40" scenegeometry="376.49;173.42;356.49;153.42;40;40"/>
+        <onentry/>
+    </final>
+</scxml>

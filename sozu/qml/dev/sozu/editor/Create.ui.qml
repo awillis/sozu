@@ -32,12 +32,6 @@ Item {
         }
     }
 
-    ComboBox {
-        id: comboBox
-        x: 31
-        y: 102
-    }
-
     ScrollView {
         id: scrollView
         x: 28

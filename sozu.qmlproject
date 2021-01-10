@@ -1,11 +1,11 @@
 import QmlProject 1.1
 
 Project {
-    mainFile: "sozu/sozu.qml"
+    mainFile: "sozu/main.qml"
 
     /* Include .qml, .js, and image files from current directory and subdirectories */
     QmlFiles {
-        directory: "sozu"
+        directory: [ "sozu", "sozu/qml" ]
     }
 
     JavaScriptFiles {
@@ -27,7 +27,11 @@ Project {
     }
 
     Files {
-        filter: "*.ttf;*.otf"
+        filter: "*.ttf;*.otf;*.scxml"
+    }
+
+    Files {
+        filter: "*.scxml"
     }
 
     Environment {

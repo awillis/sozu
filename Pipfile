@@ -5,8 +5,7 @@ name = "pypi"
 
 [packages]
 shapely = ">=1.7"
-shiboken6 = ">=6"
-pyside6 = ">=6"
+pyside2 = "5.15.2"
 sqlalchemy = ">=1.3"
 xsdata = ">=20"
 click = "*"
